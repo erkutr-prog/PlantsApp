@@ -6,6 +6,8 @@ import OnBoarding from './OnBoarding';
 import WelcomeScreen from './WelcomeScreen';
 import Main from './Main';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Provider } from 'react-redux';
+import store from './store';
 
 type Props = {}
 
@@ -31,26 +33,28 @@ const App = (props: Props) => {
 
   return (
     isAppFirstLaunched !== null && (
-        <NavigationContainer>
-        <Stack.Navigator initialRouteName='WelcomeScreen' screenOptions={{headerShown: false}}>
-            {isAppFirstLaunched && (
-                <>
-                <Stack.Screen
-                    name='WelcomeScreen'
-                    component={WelcomeScreen}
-                />
-                <Stack.Screen
-                    name='OnBoarding'
-                    component={OnBoarding}
-                />
-                </>
-            )}
-            <Stack.Screen
-                name='MainScreen'
-                component={Main}
-            />
-        </Stack.Navigator>
-    </NavigationContainer>
+        <Provider store={store}>
+            <NavigationContainer>
+                <Stack.Navigator initialRouteName='WelcomeScreen' screenOptions={{headerShown: false}}>
+                    {isAppFirstLaunched && (
+                        <>
+                        <Stack.Screen
+                            name='WelcomeScreen'
+                            component={WelcomeScreen}
+                        />
+                        <Stack.Screen
+                            name='OnBoarding'
+                            component={OnBoarding}
+                        />
+                        </>
+                    )}
+                    <Stack.Screen
+                        name='MainScreen'
+                        component={Main}
+                    />
+                </Stack.Navigator>
+            </NavigationContainer>
+        </Provider>
     )
   )
 }

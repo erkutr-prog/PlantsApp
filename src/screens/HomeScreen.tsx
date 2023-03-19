@@ -3,13 +3,19 @@ import {
   Text,
   SafeAreaView,
   Image,
-  StyleSheet,
   Dimensions,
   TextInput,
-  ImageBackground,
+  FlatList,
 } from 'react-native';
-import React from 'react';
+import React, { useEffect } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useSelector, useDispatch } from 'react-redux';
+import {RootState, AppDispatch} from './store';
+import { IPlants, IQuestions } from '../models/MainScreen';
+import QuestionView from '../components/QuestionView';
+import { fetchQuestions } from '../features/QuestionsSlice';
+import PlantView from '../components/PlantView';
+import { fetchPlants } from '../features/PlantsSlice';
 
 type Props = {};
 
@@ -20,8 +26,16 @@ const mailIcon = require('./../images/MailIcon.png');
 const {width, height} = Dimensions.get('window');
 
 const HomeScreen = (props: Props) => {
-  return (
-    <SafeAreaView style={{flex: 1, backgroundColor: '#FBFAFA'}}>
+  const dispatch = useDispatch<AppDispatch>()
+  const screenState = useSelector((state: RootState) => state);
+
+  useEffect(() => {
+    dispatch(fetchQuestions());
+    dispatch(fetchPlants())
+  }, [])
+
+  const getHeaderComponent = () => {
+    return (
       <View style={{flexDirection: 'column'}}>
         <View style={{backgroundColor: '#F7F7F7', flexDirection: 'column'}}>
           <Text
@@ -163,7 +177,31 @@ const HomeScreen = (props: Props) => {
             Get Started
           </Text>
         </View>
-        <View></View>
+        <View style={{marginLeft: 24}}>
+            <FlatList
+              data={screenState.questionList.questions}
+              keyExtractor={(item: IQuestions) => item.id.toString()}
+              renderItem={({item}) => <QuestionView question={item} />}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+            />
+        </View>
+      </View>
+    )
+  }
+
+  return (
+    <SafeAreaView style={{flex: 1, backgroundColor: '#FBFAFA', justifyContent: 'center', alignItems: 'center'}}>
+      <View style={{flex: 1, alignSelf: 'center'}}>
+        <FlatList
+          data={screenState.plantList.plants}
+          ListHeaderComponent={getHeaderComponent()}
+          numColumns={2}
+          keyExtractor={(item: IPlants) => item.id.toString()}
+          renderItem={({item}) => <PlantView plant={item} />}
+          showsVerticalScrollIndicator={false}
+          columnWrapperStyle={{marginLeft: 24}}
+        />
       </View>
     </SafeAreaView>
   );
