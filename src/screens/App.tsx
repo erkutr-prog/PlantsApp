@@ -57,7 +57,7 @@ const App = (props: Props) => {
                     <Stack.Screen
                         name='WebView'
                         component={WebViewer}
-                        options={{headerShown: true}}
+                        options={{headerShown: true, headerTitle: ''}}
                     />
                     <Stack.Screen
                         name='Purchase'
