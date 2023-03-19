@@ -67,18 +67,14 @@ const PayWall = (props: Props) => {
           <View style={{flex: 1, flexDirection: 'column-reverse', margin: 20}}>
             {closeButton()}
             {getFeaturesList()}
-            <View>
               <Text
                 style={styles.mainText}>
                 Access All Features
               </Text>
-            </View>
-            <View>
               <Text
                 style={styles.subText}>
                 <Text style={{fontWeight: '700'}}>PlantApp</Text> Premium
               </Text>
-            </View>
           </View>
         </ImageBackground>
       </View>
@@ -98,6 +94,7 @@ const PayWall = (props: Props) => {
                 {
                   borderColor: '#28AF6E',
                   backgroundColor: 'rgba(40, 175, 110, 0)',
+                  borderWidth: 1.5
                 },
               ]
             : styles.subscriptionCard

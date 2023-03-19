@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import React from 'react';
 import {IPlants} from '../models/MainScreen';
+import FastImage from 'react-native-fast-image';
 
 type Props = {
   plant: IPlants; // Plant information
@@ -19,10 +20,9 @@ const PlantView = (props: Props) => {
     <TouchableOpacity
       activeOpacity={1}
       style={styles.container}>
-      <ImageBackground
+      <FastImage
         source={{uri: image.url}}
-        imageStyle={{borderRadius: 12}}
-        style={StyleSheet.absoluteFill}>
+        style={[StyleSheet.absoluteFill, {borderRadius: 12}]}>
         <View
           style={styles.textContainer}>
           <Text
@@ -31,7 +31,7 @@ const PlantView = (props: Props) => {
             {title}
           </Text>
         </View>
-      </ImageBackground>
+      </FastImage>
     </TouchableOpacity>
   );
 };

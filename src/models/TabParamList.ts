@@ -3,7 +3,7 @@ export type RootStackParamList = {
     Diagnose: undefined,
     MyGarden: undefined,
     Profile: undefined,
-    Camera: undefined,
+    CameraScreen: undefined,
     WebView: { htmlSource: string },
     WelcomeScreen: undefined,
     OnBoarding: undefined,

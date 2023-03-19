@@ -10,6 +10,7 @@ import store from './store';
 import WebViewer from '../components/WebViewer';
 import { RootStackParamList } from '../models/TabParamList';
 import Purchase from './Purchase';
+import CameraScreen from './Camera';
 
 type Props = {}
 
@@ -62,6 +63,10 @@ const App = (props: Props) => {
                     <Stack.Screen
                         name='Purchase'
                         component={Purchase}
+                    />
+                    <Stack.Screen
+                        name='CameraScreen'
+                        component={CameraScreen}
                     />
                 </Stack.Navigator>
             </NavigationContainer>
