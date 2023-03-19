@@ -8,10 +8,11 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Diagnose from './Diagnose';
 import Camera from './Camera';
 import MyGarden from './MyGarden';
+import { RootStackParamList } from '../models/TabParamList';
 
 type Props = {};
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<RootStackParamList>();
 
 const Main = (props: Props) => {
   return (
@@ -44,7 +45,7 @@ const Main = (props: Props) => {
         }} 
       />
       <Tab.Screen 
-        name=" " 
+        name="Camera" 
         component={Camera} 
         options={{
             tabBarIcon: ({focused}) => (
@@ -55,7 +56,8 @@ const Main = (props: Props) => {
                         style={{alignSelf: 'center', color: '#FFFFFF'}}
                     />
                 </TouchableOpacity>
-            )
+            ),
+            tabBarLabelStyle: {color: '#FFFF'}
         }} 
       />
       <Tab.Screen 

@@ -8,10 +8,12 @@ import Main from './Main';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Provider } from 'react-redux';
 import store from './store';
+import WebViewer from '../components/WebViewer';
+import { RootStackParamList } from '../models/TabParamList';
 
 type Props = {}
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator<RootStackParamList>()
 
 type AppLaunch = Boolean | null
 
@@ -51,6 +53,11 @@ const App = (props: Props) => {
                     <Stack.Screen
                         name='MainScreen'
                         component={Main}
+                    />
+                    <Stack.Screen
+                        name='WebView'
+                        component={WebViewer}
+                        options={{headerShown: true}}
                     />
                 </Stack.Navigator>
             </NavigationContainer>

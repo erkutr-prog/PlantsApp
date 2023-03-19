@@ -1,32 +1,46 @@
-import { View, Text, ImageBackground } from 'react-native'
-import React from 'react'
-import { IQuestions } from '../models/MainScreen'
+import {View, Text, ImageBackground, TouchableOpacity, StyleSheet} from 'react-native';
+import React from 'react';
+import {IQuestions} from '../models/MainScreen';
 
 type Props = {
-    question: IQuestions
-}
+  question: IQuestions;
+  onPress: (url: string) => void;
+};
 
 const QuestionView = (props: Props) => {
-    const {
-        id,
-        title,
-        subtitle,
-        image_uri,
-        uri,
-        order
-    } = props.question
+  const {title, image_uri, uri} = props.question;
 
   return (
-    <View style={{marginRight: 10}}>
-        <ImageBackground resizeMode='contain' imageStyle={{borderRadius: 12}} source={{uri: image_uri}} style={{width: 240, height: 164}}>
-            <View style={{ flex: 1, flexDirection: 'row'}}>
-                <Text style={{alignSelf: 'flex-end', margin: 15, fontFamily: 'Rubik', fontWeight: '400', fontSize: 15, lineHeight: 20, color: '#FFFF'}}>
-                    {title}
-                </Text>
-            </View>
-        </ImageBackground>
-    </View>
-  )
-}
+    <TouchableOpacity
+      activeOpacity={1}
+      onPress={() => props.onPress(uri)}
+      style={{marginRight: 10}}>
+      <ImageBackground
+        resizeMode="contain"
+        imageStyle={{borderRadius: 12}}
+        source={{uri: image_uri}}
+        style={{width: 240, height: 164}}>
+        <View style={{flex: 1, flexDirection: 'row'}}>
+          <Text
+            style={styles.questionText}>
+            {title}
+          </Text>
+        </View>
+      </ImageBackground>
+    </TouchableOpacity>
+  );
+};
 
-export default QuestionView
+const styles = StyleSheet.create({
+    questionText: {
+        alignSelf: 'flex-end',
+        margin: 15,
+        fontFamily: 'Rubik',
+        fontWeight: '400',
+        fontSize: 15,
+        lineHeight: 20,
+        color: '#FFFF',
+    }
+})
+
+export default QuestionView;
