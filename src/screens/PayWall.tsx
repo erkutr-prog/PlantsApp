@@ -10,7 +10,6 @@ type Props = {
 const {width, height} = Dimensions.get('window')
 
 const IMAGE_BACKGROUND = require('./../images/PayWallBackground.png');
-const IMAGE = require('./../images/PayWall.png');
 
 type Features = {
     id: string,
