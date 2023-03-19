@@ -8,4 +8,5 @@ export type RootStackParamList = {
     WelcomeScreen: undefined,
     OnBoarding: undefined,
     MainScreen: undefined,
+    Purchase: undefined
 }

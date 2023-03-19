@@ -1,14 +1,9 @@
 import {
   View,
-  Text,
   FlatList,
   Dimensions,
-  Image,
   StyleSheet,
   SafeAreaView,
-  StatusBar,
-  TouchableWithoutFeedback,
-  TouchableHighlight,
 } from 'react-native';
 import React, { useRef, useState} from 'react';
 import {OnBoardingPage} from '../models/OnBoarding';

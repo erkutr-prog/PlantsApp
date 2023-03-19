@@ -1,4 +1,3 @@
-import { View, Text } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -10,6 +9,8 @@ import { Provider } from 'react-redux';
 import store from './store';
 import WebViewer from '../components/WebViewer';
 import { RootStackParamList } from '../models/TabParamList';
+import PayWall from './PayWall';
+import Purchase from './Purchase';
 
 type Props = {}
 
@@ -58,6 +59,10 @@ const App = (props: Props) => {
                         name='WebView'
                         component={WebViewer}
                         options={{headerShown: true}}
+                    />
+                    <Stack.Screen
+                        name='Purchase'
+                        component={Purchase}
                     />
                 </Stack.Navigator>
             </NavigationContainer>

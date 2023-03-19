@@ -17,12 +17,12 @@ const FeatureItem = (props: Props) => {
           style={{alignSelf: 'center'}}
           size={20}
           color={'white'}
-          name={props.item.icon}
+          name={icon}
         />
       </View>
       <View>
-        <Text style={styles.featureHeaderText}>{props.item.header}</Text>
-        <Text style={styles.featureTitleText}>{props.item.title}</Text>
+        <Text style={styles.featureHeaderText}>{header}</Text>
+        <Text style={styles.featureTitleText}>{title}</Text>
       </View>
     </View>
   );

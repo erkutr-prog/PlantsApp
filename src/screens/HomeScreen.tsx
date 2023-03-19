@@ -72,6 +72,10 @@ const HomeScreen = ({navigation}: Props) => {
     navigation.navigate('WebView', {htmlSource: url});
   };
 
+  const navigateToPayWall = () => {
+    navigation.navigate('Purchase')
+  }
+
   const handleSearch = (searchText: string) => {
     setSearchText(searchText);
 
@@ -89,7 +93,7 @@ const HomeScreen = ({navigation}: Props) => {
         <View
           style={styles.divider}
         />
-        <PremiumCard visible={searchText === ''} />
+        <PremiumCard onPress={() => navigateToPayWall()} visible={searchText === ''} />
         <View style={{width, margin: 24, display: searchText !== '' ? 'none' : 'flex'}}>
           <Text
             style={styles.headerText}>

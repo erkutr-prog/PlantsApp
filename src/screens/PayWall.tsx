@@ -15,8 +15,8 @@ import { Features, Subscriptions } from '../models/PayWall';
 import { features, subscriptions } from '../utils/SubscriptionData';
 
 type Props = {
-  onCancelCallback: () => void;
-};
+  onCancelCallback: () => void
+}
 
 const {width, height} = Dimensions.get('window');
 const IMAGE_BACKGROUND = require('./../images/PayWallBackground.png');

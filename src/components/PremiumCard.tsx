@@ -1,9 +1,10 @@
-import {View, Text, Dimensions, Image, StyleSheet} from 'react-native';
+import {View, Text, Dimensions, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 type Props = {
-  visible: boolean
+  visible: boolean,
+  onPress: () => void
 };
 
 const mailIcon = require('./../images/MailIcon.png');
@@ -11,7 +12,8 @@ const {width} = Dimensions.get('window');
 
 const PremiumCard = (props: Props) => {
   return (
-    <View
+    <TouchableOpacity
+      onPress={() => props.onPress()}
       style={[styles.container, {display: props.visible ? 'flex' : 'none'}]}>
       <View style={{flex: 0.2, justifyContent: 'center', alignItems: 'center'}}>
         <Image
@@ -33,7 +35,7 @@ const PremiumCard = (props: Props) => {
       <View style={{flex: 0.2, justifyContent: 'center', alignItems: 'center'}}>
         <Ionicons name="chevron-forward-outline" size={24} color={'#D0B070'} />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 
