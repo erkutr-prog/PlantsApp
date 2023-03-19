@@ -9,7 +9,7 @@ import React from 'react';
 import {IPlants} from '../models/MainScreen';
 
 type Props = {
-  plant: IPlants;
+  plant: IPlants; // Plant information
 };
 
 const PlantView = (props: Props) => {

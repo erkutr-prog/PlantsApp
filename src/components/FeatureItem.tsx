@@ -4,7 +4,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import {Features} from '../models/PayWall';
 
 type Props = {
-  item: Features;
+  item: Features; // Features in the onboarding screen
 };
 
 const FeatureItem = (props: Props) => {

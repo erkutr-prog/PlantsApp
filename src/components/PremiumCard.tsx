@@ -3,8 +3,8 @@ import React from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 type Props = {
-  visible: boolean,
-  onPress: () => void
+  visible: boolean, // visibility, can be hided when user searches for plants
+  onPress: () => void // onPress callback, navigation to payment screen
 };
 
 const mailIcon = require('./../images/MailIcon.png');
@@ -13,6 +13,7 @@ const {width} = Dimensions.get('window');
 const PremiumCard = (props: Props) => {
   return (
     <TouchableOpacity
+      activeOpacity={1}
       onPress={() => props.onPress()}
       style={[styles.container, {display: props.visible ? 'flex' : 'none'}]}>
       <View style={{flex: 0.2, justifyContent: 'center', alignItems: 'center'}}>

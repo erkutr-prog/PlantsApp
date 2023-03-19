@@ -2,9 +2,9 @@ import { Text, TouchableHighlight } from 'react-native'
 import React from 'react'
 
 type Props = {
-    style: object,
-    text: string,
-    onPress: () => void
+    style: object, // Button container style
+    text: string, // The text inside the button
+    onPress: () => void // onPress function of button
 }
 
 const CustomButton = (props: Props) => {

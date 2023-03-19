@@ -15,7 +15,7 @@ import { Features, Subscriptions } from '../models/PayWall';
 import { features, subscriptions } from '../utils/SubscriptionData';
 
 type Props = {
-  onCancelCallback: () => void
+  onCancelCallback: () => void // To close the payment screen
 }
 
 const {width, height} = Dimensions.get('window');

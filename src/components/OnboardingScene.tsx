@@ -3,7 +3,7 @@ import React from 'react'
 import { OnBoardingPage } from '../models/OnBoarding'
 
 type Props = {
-    item: OnBoardingPage
+    item: OnBoardingPage // The text and pngs that onboarding slides contain
 }
 
 const {width} = Dimensions.get('window')

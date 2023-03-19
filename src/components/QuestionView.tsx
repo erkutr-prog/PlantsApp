@@ -3,8 +3,8 @@ import React from 'react';
 import {IQuestions} from '../models/MainScreen';
 
 type Props = {
-  question: IQuestions;
-  onPress: (url: string) => void;
+  question: IQuestions; // Question information
+  onPress: (url: string) => void; // callback function to open the question answer url
 };
 
 const QuestionView = (props: Props) => {

@@ -9,7 +9,6 @@ import { Provider } from 'react-redux';
 import store from './store';
 import WebViewer from '../components/WebViewer';
 import { RootStackParamList } from '../models/TabParamList';
-import PayWall from './PayWall';
 import Purchase from './Purchase';
 
 type Props = {}
